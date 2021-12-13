@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            background: #00f;
+            font: normal 20pt Arial;
+            color: #fff;
+        }
+    </style>
+</head>
+<body>
+
+    <script>
+        var nome = prompt("Qual é seu nome?")
+        document.write(`Olá, ${nome}! seu nome tem ${nome.length} letras.<br>`)
+        document.writeln(`Seu nome em maiúculo é ${nome.toUpperCase()}<br>`)
+        document.write(`Seu nome em minúsculo é ${nome.toLowerCase()}<br>`)
+
+        var numero = Number(prompt("Digite um número com ponto flutante"))
+        alert(`O número informado: ${numero} / Formatado: ${numero.toFixed(2).replace(".", ",")}`)
+        document.write(`Valor em real: ${numero.toLocaleString('pt-BR', {style: 'currency', currency: 'BRL'})}`) // 'USD', 'EUR'
+    </script>
+</body>
+</html>
