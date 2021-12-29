@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nationality</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            text-align: center;
+            font: normal 16pt Arial;
+            background: #ccc;
+            color: #000;
+        }
+
+        .container {
+            width: 90%;
+            margin: 50px auto;
+        }
+
+        input, button {
+            width: 100px;
+            margin: 20px 0;
+            padding: 5px;
+        }
+
+        .result {
+            width: 350px;
+            margin: 0 auto;
+            padding: 10px;
+            background: #fff;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h1>Verifica Nacionalidade</h1>
+        <section>
+            <label for="">Informe o país:</label>
+            <input type="text">
+            <button>Verificar</button>
+        </section>
+        <div class="result">
+            Mensagem:
+        </div>
+    </div>
+
+    <script>
+        var input = document.querySelector("input");
+
+        const button = document.querySelector("button");
+        button.addEventListener("click", nationality);
+
+        var result = document.querySelector(".result");
+
+        function conversion(input)
+        {
+            return input.value.toUpperCase().trim();
+        }
+
+        function showOnScreenFormatted(country, input)
+        {
+            result.innerHTML = `Vivendo no(a): ${country}! Você é ${input}`;
+        }
+
+        function clean()
+        {
+            input.value = "";
+        }
+
+        function nationality()
+        {
+            var country = conversion(input);
+
+            clean();
+
+            if (country)
+            {
+                switch (country)
+                {
+                    case "BRASIL": return showOnScreenFormatted(country, `Brasileiro!`);
+                    case "ESTADOS UNIDOS": return showOnScreenFormatted(country,`Estadunidense!`);
+                    case "UGANDA": return showOnScreenFormatted(country, `Ugandense!`);
+                    case "HUNGRIA": return showOnScreenFormatted(country, `Húngaro!`);
+                }
+
+                return result.innerHTML = `Palavra chave: ${country} = invalido(a)! Opções: Brasil, Estados Unidos, Uganda e Hungria.`;
+            }
+        }
+    </script>
+</body>
+
+</html>
