@@ -1,0 +1,29 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  text-align: center;
+  font: bold 1.3em Arial;
+  color: #fff;
+  background: #46788f;
+}
+
+.result-hour {
+  margin: 2em;
+  padding: 5em;
+  border-radius: 100%;
+  background: #000;
+}
+
+.result-message {
+  margin: 2em;
+}
+
+button {
+  padding: 1em;
+  text-transform: uppercase;
+  font-weight: bold;
+}

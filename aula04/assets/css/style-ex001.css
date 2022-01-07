@@ -1,0 +1,54 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  text-align: center;
+  font: normal 20pt Arial;
+  color: #fff;
+  background: #00f;
+}
+
+.conteiner {
+
+}
+
+.cabecalho {
+  margin: 1em 0;
+}
+
+h1 {
+  color: #ff0;
+}
+
+.conteudo {
+
+}
+
+.entradaDeDados {
+  margin: 2em 0;
+}
+
+label, input, button, .result {
+  padding: 0.4em;
+  vertical-align: bottom;
+  font-weight: bold;
+}
+
+.result {
+  margin: 0 1em;
+  color: #000;
+  background: #fff;
+}
+
+.rodape {
+  margin: 1em 0;
+  padding: 2em 0 0;
+}
+
+span {
+  font-size: 0.5em;
+  font-weight: bold;
+}

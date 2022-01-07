@@ -1,0 +1,31 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  text-align: center;
+  font: bold 1.3em Arial;
+  color: #fff;
+  background: #666;
+}
+
+.container {
+  margin: 5em 0 0;
+}
+
+.result {
+  width: 13em;
+  margin: 5em auto;
+  padding: 1em;
+  color: #fff;
+  background: #000;
+}
+
+button {
+  text-transform: uppercase;
+  font-weight: bold;
+  width: 20em;
+  padding: 1em;
+}
