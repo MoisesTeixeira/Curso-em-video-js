@@ -1,0 +1,38 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  text-align: center;
+  font: normal 20pt Arial;
+  color: #fff;
+  background: #00f;
+}
+
+.container {
+  margin: 1em 0;
+}
+
+h1 {
+  color: #ff0;
+}
+
+p {
+  margin: 1em;
+}
+
+label, input, button {
+  width: 8em;
+  margin: 4em 0;
+  padding: 0.5em;
+  font-weight: bold;
+}
+
+.result {
+  margin: 0 1em;
+  padding: 0.5em;
+  color: #000;
+  background: #fff;
+}

@@ -1,0 +1,30 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font: bold 1em Arial;
+  background: #59a894;
+}
+
+.container {
+  margin: 3em 1em;
+}
+
+label {
+  text-transform: uppercase;
+}
+
+input, button {
+  width: 10em;
+  margin: 0 0 2em;
+  padding: 0.5em;
+}
+
+.result {
+  padding: 0.5em;
+  color: #000;
+  background: #ccc;
+}

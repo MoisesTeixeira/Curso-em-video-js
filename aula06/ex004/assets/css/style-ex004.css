@@ -1,0 +1,31 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background: #00f;
+  font: bold 20pt Arial;
+  color: #fff;
+}
+
+.container {
+  margin: 1em 0 0;
+}
+
+.content-field-1, .content-field-2 {
+  margin: 0 1em;
+}
+
+input, button {
+  width: 19%;
+  margin: 5em 0 2em;
+  padding: 0.4em;
+  font-weight: bold;
+}
+
+.result-1, .result-2 {
+  color: #000;
+  background: #fff;
+}

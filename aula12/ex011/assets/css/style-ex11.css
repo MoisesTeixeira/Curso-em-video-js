@@ -1,0 +1,27 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  text-align: center;
+  font: bold 1.3em Arial;
+  color: #ff0;
+  background: rgb(21, 90, 0);
+}
+
+div {
+  margin: 2em 0 0;
+}
+
+h1 {
+  margin: 0 0 1em;
+}
+
+.answer-field {
+  margin: 2em;
+  padding: 1em;
+  color: #fff;
+  background: rgb(0, 0, 146);
+}
