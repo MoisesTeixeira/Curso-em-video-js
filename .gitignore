@@ -1,2 +1,7 @@
+.vscode/
+node_modules/
 .editorconfig
-.vscode
+.eslintrc.json
+package-lock.json
+package.json
+aula14/

@@ -16,85 +16,78 @@ const currentYear = date.getFullYear();
 const calculateAge = (year) => year - conversions(inputYear);
 
 function checkLifeStage(age) {
-  if (age < 1)
-    return 0;
+	if (age < 1)
+		return 0;
 
-  if (age < 10)
-    return 1;
+	if (age < 10)
+		return 1;
 
-  if (age < 21)
-    return 2;
+	if (age < 21)
+		return 2;
 
-  if (age < 50)
-    return 3;
+	if (age < 50)
+		return 3;
 
-  return 4;
+	return 4;
 }
 
 const checkSex = () => inputSex[0].checked ? "Man" : "Woman";
 
-const imageError = "https://images.pexels.com/photos/5422779/pexels-photo-5422779.jpeg?auto=compress&cs=tinysrgb&dpr=3&h=750&w=1260";
+function provideImages() {
+	const manImages = [5422779, 1697847, 8590251, 2182970, 9923562];
+	const womanImages = [5422779, 1087722, 7275385, 7490734, 3778171];
 
-const childMan = "https://images.pexels.com/photos/1697847/pexels-photo-1697847.jpeg?auto=compress&cs=tinysrgb&dpr=3&h=750&w=1260";
+	let sex = checkSex();
 
-const childWoman = "https://images.pexels.com/photos/1087722/pexels-photo-1087722.jpeg?auto=compress&cs=tinysrgb&dpr=3&h=750&w=1260";
+	if (sex == "Man")
+		return manImages;
 
-const youngMan = "https://images.pexels.com/photos/8590251/pexels-photo-8590251.jpeg?auto=compress&cs=tinysrgb&dpr=3&h=750&w=1260";
+	return womanImages;
+}
 
-const youngWoman = "https://images.pexels.com/photos/7275385/pexels-photo-7275385.jpeg?auto=compress&cs=tinysrgb&dpr=3&h=750&w=1260";
+function insertImage(index) {
+	const images = provideImages();
 
-const adultMan = "https://images.pexels.com/photos/2182970/pexels-photo-2182970.jpeg?auto=compress&cs=tinysrgb&dpr=3&h=750&w=1260";
+	for (let i = 0; i < 6; i++)
+		if (index == i)
+			return `https://images.pexels.com/photos/${images[i]}/pexels-photo-${images[i]}.jpeg?auto=compress&cs=tinysrgb&dpr=3&h=750&w=1260`;
+}
 
-const adultWoman = "https://images.pexels.com/photos/7490734/pexels-photo-7490734.jpeg?auto=compress&cs=tinysrgb&dpr=3&h=750&w=1260";
+function provideMessage(index) {
+	const sex = checkSex();
+	const age = calculateAge(currentYear);
 
-const oldMan = "https://images.pexels.com/photos/9923562/pexels-photo-9923562.jpeg?auto=compress&cs=tinysrgb&dpr=3&h=750&w=1260";
+	const messages = ["!ERROR!", `Child ${sex} ${age} years`, `Young ${sex} ${age} years`, `Adult ${sex} ${age} years`, `Old ${sex} ${age} years`];
 
-const oldWoman = "https://images.pexels.com/photos/3778171/pexels-photo-3778171.jpeg?auto=compress&cs=tinysrgb&dpr=3&h=750&w=1260";
+	for (let i = 0; i < 6; i++)
+		if (index == i)
+			return messages[i];
+}
 
 const img = document.querySelector("img");
 
 const setImage = (image) => img.src = image;
 
 function formatted() {
-  const sex = checkSex();
-  const age = calculateAge(currentYear);
-  const option = checkLifeStage(age);
-  switch (option) {
-    case 0: setImage(imageError); return `!ERROR!`;
-    case 1:
-      switch (sex) {
-        case "Man": setImage(childMan);
-          break;
-        case "Woman": setImage(childWoman);
-          break;
-      } return `Child ${sex} ${age} years`;
-    case 2:
-      switch (sex) {
-        case "Man": setImage(youngMan);
-          break;
-        case "Woman": setImage(youngWoman);
-          break;
-      } return `Young ${sex} ${age} years`;
-    case 3:
-      switch (sex) {
-        case "Man": setImage(adultMan);
-          break;
-        case "Woman": setImage(adultWoman);
-          break;
-      } return `Adult ${sex} ${age} years`;
-    case 4:
-      switch (sex) {
-        case "Man": setImage(oldMan);
-          break;
-        case "Woman": setImage(oldWoman);
-          break;
-      } return `Old ${sex} ${age} years`;
-  }
+	const option = checkLifeStage(calculateAge(currentYear));
+
+	for (let i = 0; i < 6; i++)
+		switch (option) {
+		case 0:
+			setImage(insertImage(i)); return provideMessage(i);
+		case i:
+			switch (checkSex()) {
+			case "Man": setImage(insertImage(i));
+				break;
+			case "Woman": setImage(insertImage(i));
+				break;
+			} return provideMessage(i);
+		}
 }
 
-const result = document.querySelector(".result");
-
 function printOnScreen() {
-  if (isEmpty())
-    result.innerHTML = formatted();
+	const result = document.querySelector(".result");
+	
+	if (isEmpty())
+		result.innerHTML = formatted();
 }
