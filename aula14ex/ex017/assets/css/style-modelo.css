@@ -5,11 +5,11 @@
 }
 
 body {
+	font: normal 15pt Arial;
   background: #468eec;
-  font: normal 15pt Arial;
 }
 
-header, section, input, button, textarea, footer {
+header, section, input, button, select, footer {
 	margin: 1em 0;
 	padding: 0.5em;
 }

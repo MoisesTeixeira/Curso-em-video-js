@@ -16,16 +16,28 @@ function multiplication() {
 }
 
 function formatting() {
-	let results = multiplication(), message = "", number = conversions(INPUT);
+	let results = multiplication(), message = "", number = conversions(INPUT), getMessages = [];
 	const LENGTH = results.length;
-	for (let i = 0; i < LENGTH; i++)
-		message += `${number} x ${i} = ${results[i]}\n`;
-
-	return message;
+	for (let i = 0; i < LENGTH; i++) {
+		message = `${number} x ${i} = ${results[i]}`;
+		getMessages[i] = message;
+	}
+	return getMessages;
 }
 
+let select = document.querySelector("select");
+
+const clear = () => select.innerHTML = "";
+
 function render() {
-	let textArea = document.querySelector("textarea");
-	if (isEmpty(INPUT))
-		textArea.innerHTML = formatting();
+	let messages = formatting();
+	const LENGTH = messages.length;
+	if (isEmpty(INPUT)) {
+		clear();
+		for (let i = 0; i < LENGTH; i++) {
+			let item = document.createElement("option");
+			item.text = messages[i];
+			select.appendChild(item);
+		}
+	}
 }
