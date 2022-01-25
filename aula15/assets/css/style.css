@@ -5,5 +5,12 @@
 }
 
 body {
-	background: #494444;
+	text-align: center;
+	font: normal 1.2em Arial;
+	background: #a5cf98;
+}
+
+header, main, input, button, div {
+	margin: 1em 0;
+	padding: 0.5em;
 }

@@ -1,4 +1,43 @@
-let number = [6, 2, 5, 100];
+const [BUTTON, INPUT] = [document.querySelector("button"), document.querySelector("input")];
+
+const isEmpty = (input) => input.value;
+
+const conversions = (htmlElement) => Number(htmlElement.value);
+
+function addAttempts(input) {
+	let attemptOfTime = conversions(input), attempts = [];
+	for (let i = 0; i < 3; i++)
+		attempts.push(attemptOfTime);
+
+	return attempts;
+}
+
+const generateLuckyNumber = (min, max) => Number(Math.floor(Math.random() * (max - min + 1)) + min);
+
+let drawnNumber = generateLuckyNumber(0, 10);
+
+function checkAttempt() {
+	let getAttempts = addAttempts(INPUT);
+	const LENGHT = getAttempts.length;
+	for (let i = 0; i < LENGHT; i++)
+		return getAttempts[i] == drawnNumber ? "V" : "X";
+}
+
+function formating() {
+	let option = checkAttempt();
+	switch (option) {
+	case "V": return `Drawn Number: ${drawnNumber} Congratulations you got it right!`;
+	case "X": return "Try again you were wrong!";
+	}
+}
+
+BUTTON.addEventListener("click", () => {
+	let output = document.querySelector(".output");
+	if (isEmpty(INPUT))
+		output.innerHTML = formating();
+});
+
+// let number = [6, 2, 5, 100];
 
 // number.sort();
 // number.push(4);
